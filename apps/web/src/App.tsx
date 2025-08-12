@@ -10,10 +10,12 @@ function App() {
   const [health, setHealth] = useState<string | null>(null)
 
   // API client example to test Hono RPC
-  const client = hc<AppType>('http://localhost:8787/')
+  const client = hc<AppType>(import.meta.env.VITE_API_BASE_URL || 'http://localhost:8787')
   client.api.health.$get().then((res) => {
-    console.log('Health check response:', res.statusText)
-    setHealth(res.statusText)
+    console.log('Health check response:', res)
+    res.text().then((text) => {
+      setHealth(text)
+    })
   }).catch((error) => {
     console.error('Error fetching health:', error)
   })
