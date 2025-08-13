@@ -12,11 +12,9 @@
       "persistent": true,
       "cache": false
     },
-    "biome:check": {
-       "dependsOn": ["^biome:check"]
-     },
-     "biome:fix": {
-       "dependsOn": ["^biome:fix"]
-     }
+    "//#biome:check": {},
+    "//#biome:fix": {
+      "cache": false
+    }
   }
 }

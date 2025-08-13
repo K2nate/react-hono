@@ -7,9 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "check-types": "tsc --noEmit",
-    "preview": "vite preview",
-    "biome:check": "biome check .",
-    "biome:fix": "biome check --fix ."
+    "preview": "vite preview"
   },
   "dependencies": {
     "hono": "^4.9.0",
@@ -22,8 +20,6 @@
     "@vitejs/plugin-react-swc": "^3.11.0",
     "globals": "^16.3.0",
     "typescript": "~5.8.3",
-    "vite": "^7.1.0",
-    "@biomejs/biome": "^2.1.4",
-    "@repo/biome-config": "workspace:*"
+    "vite": "^7.1.0"
   }
 }
