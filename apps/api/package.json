@@ -6,7 +6,9 @@
     "build": "wrangler build",
     "check-types": "tsc --noEmit",
     "deploy": "wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "biome:check": "biome check .",
+    "biome:fix": "biome check --fix ."
   },
   "dependencies": {
     "hono": "^4.9.0"
@@ -14,6 +16,8 @@
   "devDependencies": {
     "wrangler": "^4.4.0",
     "@types/node": "^20.11.17",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@biomejs/biome": "^2.1.4",
+    "@repo/biome-config": "workspace:*"
   }
 }

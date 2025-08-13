@@ -1,0 +1,16 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
+  "extends": ["../../packages/biome-config/biome.json"],
+  "files": {
+    "includes": [
+        "src/**/*",
+        "*.ts",
+        "*.tsx",
+        "*.json"
+    ],
+    "experimentalScannerIgnores": [
+        "node_modules",
+        "dist"
+    ]
+  }
+}
