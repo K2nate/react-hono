@@ -8,8 +8,7 @@
     "dev": "turbo dev",
     "biome:check": "biome check .",
     "biome:fix": "biome check . --write",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged"
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
