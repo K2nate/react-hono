@@ -7,7 +7,9 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "biome:check": "biome check .",
-    "biome:fix": "biome check . --write"
+    "biome:fix": "biome check . --write",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,19 @@
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@biomejs/biome": "2.1.4",
+    "husky": "^8.0.0",
+    "lint-staged": "^16.1.5",
     "turbo": "^2.5.5"
+  },
+  "lint-staged": {
+    "apps/**/src/**/*.{js,jsx,ts,tsx,json}": [
+      "pnpm biome:fix"
+    ],
+    "packages/**/*.{js,jsx,ts,tsx,json}": [
+      "pnpm biome:fix"
+    ],
+    "{biome,package,turbo}.json": [
+      "pnpm biome:fix"
+    ]
   }
 }
