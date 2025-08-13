@@ -6,6 +6,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "check-types": "turbo check-types",
     "biome:check": "biome check .",
     "biome:fix": "biome check . --write",
     "prepare": "husky install"
