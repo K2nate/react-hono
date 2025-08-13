@@ -1,39 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import type { AppType } from '@api/index'
-import { hc } from 'hono/client'
+import { useState } from 'react';
+import viteLogo from '/vite.svg';
+import reactLogo from './assets/react.svg';
+import './App.css';
+import type { AppType } from '@api/index';
+import { hc } from 'hono/client';
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [health, setHealth] = useState<string | null>(null)
+  const [count, setCount] = useState(0);
+  const [health, setHealth] = useState<string | null>(null);
 
   // API client example to test Hono RPC
-  const client = hc<AppType>(import.meta.env.VITE_API_BASE_URL || 'http://localhost:8787')
-  client.api.health.$get().then((res) => {
-    console.log('Health check response:', res)
-    res.text().then((text) => {
-      setHealth(text)
+  const client = hc<AppType>(
+    import.meta.env.VITE_API_BASE_URL || 'http://localhost:8787',
+  );
+  client.api.health
+    .$get()
+    .then((res) => {
+      console.log('Health check response:', res);
+      res.text().then((text) => {
+        setHealth(text);
+      });
     })
-  }).catch((error) => {
-    console.error('Error fetching health:', error)
-  })
+    .catch((error) => {
+      console.error('Error fetching health:', error);
+    });
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
+        <a href="https://vite.dev" target="_blank" rel="noopener">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noopener">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Vite + React</h1>
       <h2>API Health: {health}</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button type="button" onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
@@ -44,7 +49,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

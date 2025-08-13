@@ -6,13 +6,15 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "biome:check": "biome check .",
+    "biome:fix": "biome check . --write"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
+    "@biomejs/biome": "2.1.4",
     "turbo": "^2.5.5"
   }
 }

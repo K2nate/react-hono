@@ -11,6 +11,10 @@
     "dev": {
       "persistent": true,
       "cache": false
+    },
+    "//#biome:check": {},
+    "//#biome:fix": {
+      "cache": false
     }
   }
 }
