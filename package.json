@@ -9,6 +9,9 @@
     "check-types": "turbo check-types",
     "biome:check": "biome check .",
     "biome:fix": "biome check . --write",
+    "test": "turbo run test",
+    "test:projects": "vitest run",
+    "test:projects:watch": "vitest --watch",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -17,9 +20,11 @@
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@biomejs/biome": "2.1.4",
+    "@repo/vitest-config": "workspace:*",
     "husky": "^8.0.0",
     "lint-staged": "^16.1.5",
-    "turbo": "^2.5.5"
+    "turbo": "^2.5.5",
+    "vitest": "^3.2.4"
   },
   "lint-staged": {
     "apps/**/src/**/*.{js,jsx,ts,tsx,json}": [

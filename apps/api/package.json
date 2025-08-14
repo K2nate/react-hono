@@ -5,6 +5,8 @@
     "dev": "wrangler dev",
     "build": "wrangler build",
     "check-types": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
     "deploy": "wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
@@ -12,8 +14,11 @@
     "hono": "^4.9.0"
   },
   "devDependencies": {
-    "wrangler": "^4.4.0",
+    "@repo/vitest-config": "workspace:*",
+    "@vitest/coverage-istanbul": "^3.2.4",
     "@types/node": "^20.11.17",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.4.0"
   }
 }
