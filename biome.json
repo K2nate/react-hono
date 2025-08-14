@@ -16,6 +16,8 @@
       "!.devcontainer",
       "!.pnpm-store",
       "!.turbo",
+      "!**/coverage",
+      "!**/coverage.json",
       "**/*.json"
     ]
   },

@@ -3,6 +3,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"]
     },
     "check-types": {
@@ -15,6 +16,14 @@
     "//#biome:check": {},
     "//#biome:fix": {
       "cache": false
+    },
+    "test": {
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/vitest.config.ts"],
+      "dependsOn": ["transit", "@repo/vitest-config#build"],
+      "outputs": ["coverage.json"]
+    },
+    "transit": {
+      "dependsOn": ["^transit"]
     }
   }
 }
