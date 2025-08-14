@@ -1,40 +1,25 @@
-# Multi-stage build for optimized production image
 FROM node:20-alpine AS base
 
 # Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@10.14.0 --activate
 
-# Dependencies stage
-FROM base AS deps
-WORKDIR /app
-
-# Copy package files from root and apps/web
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY apps/web/package.json ./apps/web/
-
-# Install dependencies
-RUN pnpm install --frozen-lockfile
-
-# Build stage
 FROM base AS builder
+
+RUN apk add --no-cache gcompat
 WORKDIR /app
 
-# Copy dependencies
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/apps/web/node_modules ./apps/web/node_modules
+COPY package*json tsconfig.json src ./
 
-# Copy source code
-COPY . .
-
-# Build the application
-WORKDIR /app/apps/web
-RUN pnpm run build
+RUN pnpm install --frozen-lockfile && \
+    pnpm build && \
+    pnpm prune --prod
 
 # Production stage - serve static files with nginx
-FROM nginx:alpine AS production
+FROM nginx:alpine AS runner
+WORKDIR /app
 
 # Copy built static files
-COPY --from=builder /app/apps/web/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Configure nginx for SPA routing
 RUN echo 'server { \
