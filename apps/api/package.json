@@ -11,12 +11,13 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
+    "@hono/node-server": "^1.18.2",
     "hono": "^4.9.0"
   },
   "devDependencies": {
     "@repo/vitest-config": "workspace:*",
-    "@vitest/coverage-istanbul": "^3.2.4",
     "@types/node": "^20.11.17",
+    "@vitest/coverage-istanbul": "^3.2.4",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4",
     "wrangler": "^4.4.0"
