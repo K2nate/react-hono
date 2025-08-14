@@ -1,57 +1,27 @@
-# Multi-stage build for optimized production image
-FROM node:20-alpine AS base
+FROM node:22-alpine AS base
 
-# Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
-# Dependencies stage
-FROM base AS deps
-WORKDIR /app
-
-# Copy package files from root and apps/api
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY apps/api/package.json ./apps/api/
-
-# Install dependencies including @hono/node-server for Cloud Run
-RUN pnpm install --frozen-lockfile && \
-    cd apps/api && pnpm add @hono/node-server
-
-# Build stage
 FROM base AS builder
+
+RUN apk add --no-cache gcompat
 WORKDIR /app
 
-# Copy dependencies
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/apps/api/node_modules ./apps/api/node_modules
+COPY package*json tsconfig.json src ./
 
-# Copy source code
-COPY . .
+RUN pnpm install --frozen-lockfile && \
+    pnpm build && \
+    pnpm prune --prod
 
-# Build TypeScript
-WORKDIR /app/apps/api
-RUN pnpm exec tsc --outDir dist
-
-# Production stage
-FROM node:20-alpine AS production
-
-# Install pnpm in production image
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
+FROM base AS runner
 WORKDIR /app
 
-# Copy only necessary files for production
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/apps/api/node_modules ./apps/api/node_modules
-COPY --from=builder /app/apps/api/dist ./apps/api/dist
-COPY --from=builder /app/apps/api/package.json ./apps/api/
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 hono
 
-# Set environment variables
-ENV NODE_ENV=production
-ENV PORT=8080
+COPY --from=builder --chown=hono:nodejs /app/node_modules /app/node_modules
+COPY --from=builder --chown=hono:nodejs /app/dist /app/dist
+COPY --from=builder --chown=hono:nodejs /app/package.json /app/package.json
 
-# Cloud Run expects port 8080
-EXPOSE 8080
+USER hono
+EXPOSE 3000
 
-# Start the server
-WORKDIR /app/apps/api
-CMD ["node", "dist/server.js"]
+CMD ["node", "/app/dist/index.js"]
