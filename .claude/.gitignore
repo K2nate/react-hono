@@ -1,0 +1,4 @@
+# Ignore timestamp and cache files
+.last-docs-check
+*.cache
+*.tmp
