@@ -3,11 +3,16 @@
 ## Primary Language
 Please respond in **Japanese** unless explicitly requested otherwise.
 
+### Language Guidelines for Code and Documentation
+1. **Technical Documentation**: Write all documentation, source code comments, and JSDoc in **English** unless explicitly instructed otherwise
+2. **User-Facing Text**: Create application display text (UI strings, messages, labels) in **Japanese** by default
+
 ## Project Overview
 This is a monorepo project using Turborepo with pnpm workspaces.
 
-For detailed technology stack information, please refer to:
+For detailed project information, please refer to:
 - @docs/tech-stack.md - Complete list of technologies used in this project
+- @docs/directory-structure.md - Detailed monorepo structure and directory organization
 
 ## Development Guidelines
 
@@ -32,12 +37,7 @@ For detailed technology stack information, please refer to:
 - When asked to commit, ensure all tests pass and linting is clean
 
 ### Monorepo Structure
-- `apps/` - Application packages
-  - `api/` - Backend API (Hono + Cloudflare Workers)
-  - `web/` - Frontend application (React + Vite)
-- `packages/` - Shared packages
-  - `vitest-config/` - Shared test configuration
-- `docs/` - Project documentation
+See @docs/directory-structure.md for detailed directory structure information.
 
 ### Available Commands
 - `pnpm dev` - Start development servers

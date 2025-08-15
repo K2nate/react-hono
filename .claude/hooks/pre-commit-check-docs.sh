@@ -7,6 +7,7 @@
 # Format: "agent_name:document_path:description"
 DOCS_AGENTS=(
     "tech-stack-updater:docs/tech-stack.md:Updates technology stack documentation when dependencies change"
+    "directory-structure-updater:docs/directory-structure.md:Updates directory structure documentation when project structure changes"
     # Future agents can be added here:
     # "api-docs-updater:docs/api.md:Updates API documentation"
     # "readme-updater:README.md:Updates README files"
@@ -41,6 +42,14 @@ if echo "$input" | jq -e '.tool == "Bash" and (.parameters.command | test("^git 
             if [[ "$agent_name" == "tech-stack-updater" ]]; then
                 if git diff --cached --name-only | grep -E "(package\.json|pnpm-lock\.yaml|yarn\.lock|package-lock\.json|Cargo\.toml|go\.mod|requirements\.txt|Gemfile)" > /dev/null; then
                     echo "⚠️  Dependencies have changed - $doc_path needs update" >&2
+                    needs_update=true
+                    agents_to_run+=("$agent_name")
+                fi
+            fi
+            # For directory-structure-updater, check if directories or structure files have changed
+            if [[ "$agent_name" == "directory-structure-updater" ]]; then
+                if git diff --cached --name-only | grep -E "(^apps/|^packages/|^docs/|\.md$|package\.json|tsconfig|vite\.config|vitest\.config)" > /dev/null; then
+                    echo "⚠️  Project structure has changed - $doc_path needs update" >&2
                     needs_update=true
                     agents_to_run+=("$agent_name")
                 fi
