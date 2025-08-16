@@ -10,6 +10,7 @@ This project is a monorepo configured with Turborepo and pnpm workspaces.
 │   ├── api/           # Backend API (Hono + Cloudflare Workers)
 │   └── web/           # Frontend application (React + Vite)
 ├── packages/          # Shared packages
+│   ├── typescript-config/ # Shared TypeScript configuration
 │   └── vitest-config/ # Shared test configuration
 └── docs/              # Project documentation
 ```
@@ -66,6 +67,23 @@ apps/web/
 - **public/** - Static files
   - Files copied as-is during build
 - **dist/** - Build artifacts
+
+## packages/typescript-config - Shared TypeScript Configuration
+
+Shared TypeScript configuration package used across the monorepo.
+
+```
+packages/typescript-config/
+├── base.json           # Base TypeScript configuration
+├── nextjs.json         # Next.js specific configuration
+├── react-library.json  # React library configuration
+└── package.json        # Package configuration
+```
+
+### Key Files
+- **base.json** - Base TypeScript configuration shared by all packages
+- **nextjs.json** - TypeScript configuration for Next.js applications
+- **react-library.json** - TypeScript configuration for React libraries
 
 ## packages/vitest-config - Shared Test Configuration
 

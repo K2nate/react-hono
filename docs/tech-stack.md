@@ -63,5 +63,8 @@
 
 ## Shared Packages
 
+### TypeScript Configuration (packages/typescript-config)
+- **@repo/typescript-config** - Shared TypeScript configuration for all packages
+
 ### Test Configuration (packages/vitest-config)
 - **@repo/vitest-config** - Shared Vitest configuration for all packages
