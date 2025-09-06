@@ -22,11 +22,11 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@vitest/coverage-istanbul": "^3.2.4",
-    "glob": "^11.0.1",
-    "jsdom": "^26.1.0",
-    "nyc": "^17.1.0",
-    "typescript": "^5.8.3"
+    "@vitest/coverage-istanbul": "3.2.4",
+    "glob": "11.0.3",
+    "jsdom": "26.1.0",
+    "nyc": "17.1.0",
+    "typescript": "5.8.3"
   },
   "packageManager": "pnpm@10.14.0"
 }
