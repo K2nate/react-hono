@@ -22,7 +22,7 @@
     "@biomejs/biome": "2.2.2",
     "@repo/vitest-config": "workspace:*",
     "husky": "8.0.3",
-    "lint-staged": "16.1.5",
+    "lint-staged": "16.1.6",
     "turbo": "2.5.5",
     "vitest": "3.2.4"
   },
