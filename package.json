@@ -19,7 +19,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.15.1",
   "devDependencies": {
-    "@biomejs/biome": "2.2.3",
+    "@biomejs/biome": "2.2.4",
     "@repo/vitest-config": "workspace:*",
     "husky": "9.1.7",
     "lint-staged": "16.1.6",
