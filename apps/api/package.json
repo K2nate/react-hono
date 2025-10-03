@@ -17,7 +17,7 @@
     "@repo/vitest-config": "workspace:*",
     "@vitest/coverage-istanbul": "3.2.4",
     "@types/node": "22.18.7",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "vitest": "3.2.4",
     "wrangler": "4.40.3"
   }
