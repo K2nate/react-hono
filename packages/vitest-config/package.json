@@ -28,5 +28,5 @@
     "nyc": "17.1.0",
     "typescript": "5.9.3"
   },
-  "packageManager": "pnpm@10.18.1"
+  "packageManager": "pnpm@10.18.2"
 }
