@@ -19,7 +19,7 @@
   "devDependencies": {
     "@repo/vitest-config": "workspace:*",
     "@vitest/coverage-istanbul": "3.2.4",
-    "@types/react": "19.2.5",
+    "@types/react": "19.2.6",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react-swc": "4.2.2",
     "globals": "16.5.0",
