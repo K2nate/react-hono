@@ -31,7 +31,7 @@ importers:
     dependencies:
       hono:
         specifier: ^4.9.0
-        version: 4.10.6
+        version: 4.10.7
     devDependencies:
       '@repo/vitest-config':
         specifier: workspace:*
@@ -56,7 +56,7 @@ importers:
     dependencies:
       hono:
         specifier: ^4.9.0
-        version: 4.10.6
+        version: 4.10.7
       react:
         specifier: ^19.1.1
         version: 19.2.0
@@ -1406,8 +1406,8 @@ packages:
     resolution: {integrity: sha512-Hrp5vIK/xr5SkeN2onO32H0MgNZ0f17HRNH39WfL0SYUNOTZ5Lz1TJ8Pajo/87dYGEFlLMm7mIc/k/s6Bvz9HQ==}
     engines: {node: '>=8'}
 
-  hono@4.10.6:
-    resolution: {integrity: sha512-BIdolzGpDO9MQ4nu3AUuDwHZZ+KViNm+EZ75Ae55eMXMqLVhDFqEMXxtUe9Qh8hjL+pIna/frs2j6Y2yD5Ua/g==}
+  hono@4.10.7:
+    resolution: {integrity: sha512-icXIITfw/07Q88nLSkB9aiUrd8rYzSweK681Kjo/TSggaGbOX4RRyxxm71v+3PC8C/j+4rlxGeoTRxQDkaJkUw==}
     engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@4.0.0:
@@ -3311,7 +3311,7 @@ snapshots:
       is-stream: 2.0.1
       type-fest: 0.8.1
 
-  hono@4.10.6: {}
+  hono@4.10.7: {}
 
   html-encoding-sniffer@4.0.0:
     dependencies:
