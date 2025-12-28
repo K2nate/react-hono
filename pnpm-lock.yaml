@@ -31,7 +31,7 @@ importers:
     dependencies:
       hono:
         specifier: ^4.9.0
-        version: 4.11.1
+        version: 4.11.2
     devDependencies:
       '@repo/vitest-config':
         specifier: workspace:*
@@ -56,7 +56,7 @@ importers:
     dependencies:
       hono:
         specifier: ^4.9.0
-        version: 4.11.1
+        version: 4.11.2
       react:
         specifier: ^19.1.1
         version: 19.2.3
@@ -1253,8 +1253,8 @@ packages:
     resolution: {integrity: sha512-Hrp5vIK/xr5SkeN2onO32H0MgNZ0f17HRNH39WfL0SYUNOTZ5Lz1TJ8Pajo/87dYGEFlLMm7mIc/k/s6Bvz9HQ==}
     engines: {node: '>=8'}
 
-  hono@4.11.1:
-    resolution: {integrity: sha512-KsFcH0xxHes0J4zaQgWbYwmz3UPOOskdqZmItstUG93+Wk1ePBLkLGwbP9zlmh1BFUiL8Qp+Xfu9P7feJWpGNg==}
+  hono@4.11.2:
+    resolution: {integrity: sha512-o+avdUAD1v94oHkjGBhiMhBV4WBHxhbu0+CUVH78hhphKy/OKQLxtKjkmmNcrMlbYAhAbsM/9F+l3KnYxyD3Lg==}
     engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@4.0.0:
@@ -1971,6 +1971,7 @@ packages:
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
@@ -3060,7 +3061,7 @@ snapshots:
       is-stream: 2.0.1
       type-fest: 0.8.1
 
-  hono@4.11.1: {}
+  hono@4.11.2: {}
 
   html-encoding-sniffer@4.0.0:
     dependencies:
