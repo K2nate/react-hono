@@ -24,7 +24,7 @@
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "turbo": "2.7.2",
-    "vitest": "3.2.4"
+    "vitest": "4.1.11"
   },
   "lint-staged": {
     "apps/**/src/**/*.{js,jsx,ts,tsx,json}": [
