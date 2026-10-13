@@ -18,11 +18,11 @@
     "view-report": "open coverage/report/index.html"
   },
   "dependencies": {
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@vitest/coverage-istanbul": "3.2.4",
+    "@vitest/coverage-istanbul": "4.1.11",
     "glob": "11.1.0",
     "jsdom": "27.4.0",
     "nyc": "17.1.0",
